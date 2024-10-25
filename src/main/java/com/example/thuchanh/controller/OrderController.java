@@ -5,6 +5,7 @@ import com.example.thuchanh.entity.Order;
 import com.example.thuchanh.entity.Product;
 import com.example.thuchanh.service.OrderService;
 import com.example.thuchanh.service.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -34,7 +35,7 @@ public class OrderController {
     }
 
     @PostMapping("/add")
-    public String addOrder(@ModelAttribute OrderDTO orderDTO) {
+    public String addOrder(@Valid @ModelAttribute OrderDTO orderDTO) {
         Order order = orderService.convertToEntity(orderDTO);
         Product product = productService.getProductById(orderDTO.getProductId());
         order.setProduct(product);

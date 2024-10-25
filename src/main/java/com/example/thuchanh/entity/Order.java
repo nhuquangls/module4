@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import java.time.LocalDate;
 
 @Entity
@@ -16,7 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Order {
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "order_date", nullable = false)
     private LocalDate orderDate;
